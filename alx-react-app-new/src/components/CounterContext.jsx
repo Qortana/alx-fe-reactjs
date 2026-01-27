@@ -1,4 +1,8 @@
 import { createContext } from 'react';
 
-const CounterContext = createContext(0); // start at 0
+// Create a context for the counter
+// Initial value is 0
+const CounterContext = createContext(0);
+
+// Export it so other components can use it
 export default CounterContext;
