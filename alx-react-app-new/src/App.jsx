@@ -19,7 +19,7 @@ function App() {
         bio="Loves hiking and photography"
       />
       <CounterContext.Provider value={{ count, setCount }}>
-        <Counter />
+      <Counter />
       </CounterContext.Provider>
       <Footer />
     </div>

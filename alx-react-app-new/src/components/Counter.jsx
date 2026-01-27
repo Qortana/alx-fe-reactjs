@@ -1,8 +1,7 @@
-import { useContext } from 'react';
-import CounterContext from './CounterContext';
+import { useState } from 'react';
 
 function Counter() {
-  const { count, setCount } = useContext(CounterContext);
+  const [count, setCount] = useState(0);
 
   return (
     <div>
