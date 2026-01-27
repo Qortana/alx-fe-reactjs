@@ -3,7 +3,7 @@ import MainContent from './components/MainContent';
 import Footer from './components/Footer';
 import UserProfile from './components/UserProfile';
 import Counter from './components/Counter';
-import CounterContext from './components/CounterContext';
+import UserContext from './components/UserContext';
 import { useState } from 'react';
 
 function App() {
@@ -18,9 +18,9 @@ function App() {
         age="25"
         bio="Loves hiking and photography"
       />
-      <CounterContext.Provider value={{ count, setCount }}>
+      <UserContext.Provider value={{ count, setCount }}>
       <Counter />
-      </CounterContext.Provider>
+      </UserContext.Provider>
       <Footer />
     </div>
   );
