@@ -4,7 +4,7 @@ import { fetchUserData } from "../services/githubService";
 const Search = () => {
   const [query, setQuery] = useState("");
   const [location, setLocation] = useState("");
-  const [repos, setRepos] = useState("");
+  const [minRepos, setMinRepos] = useState("");
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -16,7 +16,7 @@ const Search = () => {
     setUsers([]);
 
     try {
-      const data = await fetchUserData(query, location, repos);
+      const data = await fetchUserData(query, location, minRepos);
       setUsers(data.items); // IMPORTANT: array
     } catch (err) {
       setError("Looks like we cant find the user");
@@ -47,8 +47,8 @@ const Search = () => {
         <input
           type="number"
           placeholder="Minimum repositories"
-          value={repos}
-          onChange={(e) => setRepos(e.target.value)}
+          value={minRepos}
+          onChange={(e) => setMinRepos(e.target.value)}
           className="w-full border p-2"
         />
 
