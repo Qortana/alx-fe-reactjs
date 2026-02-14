@@ -32,7 +32,7 @@ function RecipeDetail() {
         <p className="text-gray-700 mb-6">{recipe.summary}</p>
 
         <div className="mb-4">
-          <h2 className="text-2xl font-semibold mb-2">Ingredients</h2>
+          <h2 className="text-2xl font-semibold mb-2">ingredients</h2>
           <ul className="list-disc list-inside text-gray-600">
             <li>Ingredient 1</li>
             <li>Ingredient 2</li>
@@ -41,7 +41,7 @@ function RecipeDetail() {
         </div>
 
         <div>
-          <h2 className="text-2xl font-semibold mb-2">Instructions</h2>
+          <h2 className="text-2xl font-semibold mb-2">instructions</h2>
           <ol className="list-decimal list-inside text-gray-600">
             <li>Step 1: Lorem ipsum dolor sit amet.</li>
             <li>Step 2: Consectetur adipiscing elit.</li>
