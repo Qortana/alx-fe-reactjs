@@ -15,6 +15,15 @@ function HomePage() {
         Recipe Sharing Platform
       </h1>
 
+    <div className="text-center mb-6">
+        <Link
+            to="/add-recipe"
+            className="text-white bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded-md transition-colors duration-300"
+        >
+            Add New Recipe
+        </Link>
+    </div>
+
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {recipes.map((recipe) => (
           <Link key={recipe.id} to={`/recipe/${recipe.id}`}>
