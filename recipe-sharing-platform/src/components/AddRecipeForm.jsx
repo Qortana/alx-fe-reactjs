@@ -85,11 +85,11 @@ function AddRecipeForm() {
 
         {/* Instructions */}
         <div className="mb-4">
-          <label className="block text-gray-700 font-semibold mb-2" htmlFor="instructions">
-            Preparation Steps
+          <label className="block text-gray-700 font-semibold mb-2" htmlFor="steps">
+            steps
           </label>
           <textarea
-            id="instructions"
+            id="steps"
             value={instructions}
             onChange={(e) => setInstructions(e.target.value)}
             rows={4}
