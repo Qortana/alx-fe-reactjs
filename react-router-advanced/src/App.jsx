@@ -1,32 +1,31 @@
 import React from "react";
-import { Routes, Route, Link, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Home from "./components/Home";
 import Profile from "./components/Profile";
 import ProfileDetails from "./components/ProfileDetails";
 import ProfileSettings from "./components/ProfileSettings";
-import Post from "./components/Post";
+import BlogPost from "./components/BlogPost";
 import Login from "./components/Login";
 
-// Simulate authentication
-const isAuthenticated = () => localStorage.getItem("auth") === "true";
-
-// Protected Route Component
-const ProtectedRoute = ({ children }) => {
-  return isAuthenticated() ? children : <Navigate to="/login" replace />;
+// Simple auth simulation
+const isAuthenticated = () => {
+  return localStorage.getItem("username") ? true : false;
 };
 
-const App = () => {
-  return (
-    <div>
-      <nav style={{ marginBottom: "20px" }}>
-        <Link to="/" style={{ marginRight: "10px" }}>Home</Link>
-        <Link to="/profile">Profile</Link>
-      </nav>
+// Protected Route wrapper
+const ProtectedRoute = ({ children }) => {
+  return isAuthenticated() ? children : <Navigate to="/login" />;
+};
 
+function App() {
+  return (
+    <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
 
-        {/* Protected Route */}
+        <Route path="/login" element={<Login />} />
+
+        {/* Protected Profile Route with nested routes */}
         <Route
           path="/profile/*"
           element={
@@ -34,18 +33,19 @@ const App = () => {
               <Profile />
             </ProtectedRoute>
           }
-        />
+        >
+          <Route path="details" element={<ProfileDetails />} />
+          <Route path="settings" element={<ProfileSettings />} />
+        </Route>
 
-        {/* Dynamic Route */}
-        <Route path="/post/:id" element={<Post />} />
+        {/* Dynamic blog route */}
+        <Route path="/blog/:id" element={<BlogPost />} />
 
-        <Route path="/login" element={<Login />} />
-
-        {/* Fallback */}
-        <Route path="*" element={<p>Page not found</p>} />
+        {/* Fallback route */}
+        <Route path="*" element={<h1>404 - Page Not Found</h1>} />
       </Routes>
-    </div>
+    </BrowserRouter>
   );
-};
+}
 
 export default App;

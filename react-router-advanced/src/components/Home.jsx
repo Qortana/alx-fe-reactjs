@@ -1,7 +1,10 @@
+// Example: src/components/BlogPost.jsx
 import React from "react";
+import { useParams } from "react-router-dom";
 
-const Home = () => {
-  return <h2>Welcome to the Home Page</h2>;
-};
+function BlogPost() {
+  const { id } = useParams();
+  return <h2>Blog Post ID: {id}</h2>;
+}
 
-export default Home;
+export default BlogPost;
