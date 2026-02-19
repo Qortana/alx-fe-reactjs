@@ -6,16 +6,7 @@ import ProfileDetails from "./components/ProfileDetails";
 import ProfileSettings from "./components/ProfileSettings";
 import BlogPost from "./components/BlogPost";
 import Login from "./components/Login";
-
-// Simple auth simulation
-const isAuthenticated = () => {
-  return localStorage.getItem("username") ? true : false;
-};
-
-// Protected Route wrapper
-const ProtectedRoute = ({ children }) => {
-  return isAuthenticated() ? children : <Navigate to="/login" />;
-};
+import ProtectedRoute from "./components/ProtectedRoute"; // <-- import here
 
 function App() {
   return (
